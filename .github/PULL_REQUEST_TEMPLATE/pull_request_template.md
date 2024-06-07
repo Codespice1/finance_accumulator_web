@@ -43,7 +43,20 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] New and existing unit tests pass locally with my changes
 - [ ] Any dependent changes have been merged and published in downstream modules
+- [ ] I have tested the changes in different screen sizes (mobile, tablet, desktop)
+
+
+## Deployment notes
+
+Please provide any details about the deployment, configuration, and migration steps required for this change.
+
+- [ ] New environment variables introduced:
+  - `ENV_VAR_NAME` : description
+- [ ] Database migrations required:
+  - Migration description
 
 ## Screenshots (if applicable)
 
 Please add any screenshots that can help in understanding the changes.
+
+
