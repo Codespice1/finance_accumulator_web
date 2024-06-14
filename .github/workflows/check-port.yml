@@ -1,0 +1,42 @@
+name: Check if Next.js App Runs Successfully at Port
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  check-port:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.14.0' # Specify the Node.js version your Next.js app uses
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build the Next.js application
+      run: npm run build
+
+    - name: Start the Next.js application
+      run: npm start &
+      env:
+        PORT: 3000 # Next.js defaults to port 3000
+
+    - name: Wait for the application to start
+      run: sleep 15 # Adjust the sleep duration based on how long your app takes to start
+
+    - name: Check if the app is running on the specified port
+      run: |
+        if nc -zv localhost 3000; then
+          echo "Next.js app is running on port 3000";
+        else
+          echo "Next.js app is not running on port 3000";
+          exit 1;
+        fi
