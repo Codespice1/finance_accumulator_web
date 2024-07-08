@@ -1,25 +1,57 @@
-// src/components/Home/Home.test.js
 import {render, screen, fireEvent, waitFor} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Home from "./page";
 import {describe} from "node:test";
 
-describe("Tests api call", () => {
-  test("Verify if csv report downloads on button click", async () => {
-    const {getByText} = render(<Home />);
+jest.mock("./handle-download");
+import {handleDownload} from "./handle-download";
 
-    // Find the button to download report
+describe("File download UI feedback", () => {
+  beforeEach(() => {
+    handleDownload.mockClear();
+  });
+
+  test("Checks if download button exists", () => {
+    const {getByText} = render(<Home />);
     const button = getByText("Download Report");
     expect(button).toBeInTheDocument();
+  });
 
-    // click the button
+  test("Checks if the success message displays after successful download", async () => {
+    const {getByText} = render(<Home />);
+
+    const button = getByText("Download Report");
+
+    handleDownload.mockImplementation(() => {
+      const mockBlob = new Blob(["mock data"], {type: "text/csv"});
+      return Promise.resolve({
+        ok: true,
+        blob: () => Promise.resolve(mockBlob),
+      });
+    });
+
     fireEvent.click(button);
 
     await waitFor(() => {
-      const downloadLink = document.querySelector("a");
-      expect(downloadLink).toBeInTheDocument();
-      expect(downloadLink.getAttribute("href")).toBeDefined();
-      expect(downloadLink.getAttribute("download")).toBe("stripe_report.csv");
+      const successMessage = screen.getByText("Download successful!");
+      expect(successMessage).toBeInTheDocument();
+    });
+  });
+
+  test("Checks if the error message displays after download fails", async () => {
+    const {getByText} = render(<Home />);
+
+    const button = getByText("Download Report");
+
+    handleDownload.mockImplementation(() => {
+      return Promise.reject(new Error());
+    });
+
+    fireEvent.click(button);
+
+    await waitFor(() => {
+      const errorMessage = screen.getByText("Error: Something went wrong. Please try again");
+      expect(errorMessage).toBeInTheDocument();
     });
   });
 });
