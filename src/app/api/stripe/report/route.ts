@@ -7,7 +7,9 @@ import {secrets} from "@/config/secrets";
 import {StripeService} from "@/services/api/stripe/StripeService";
 
 async function generateCSVReport() {
-  const stripeService = new StripeService();
+  const stripe = new Stripe(secrets.stripeKey);
+  const stripeService = new StripeService(stripe);
+  
   const transactions = await stripeService.fetchBalanceTransactions();
   const fees = await stripeService.fetchApplicationFees();
   const refunds = await stripeService.fetchRefunds();

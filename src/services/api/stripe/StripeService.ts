@@ -4,62 +4,39 @@ import Stripe from "stripe";
 export class StripeService {
   stripe: Stripe;
 
-  constructor() {
-    this.stripe = new Stripe(secrets.stripeKey);
+  constructor(provider: Stripe) {
+    this.stripe = provider;
   }
 
-  async fetchBalanceTransactions(startingAfter: string) {
+  async fetchBalanceTransactions() {
     const transactions = [];
-    let hasMore = true;
 
-    while (hasMore) {
-      const response: any = await this.stripe.balanceTransactions.list({
-        limit: 100,
-        starting_after: startingAfter,
-      });
-      transactions.push(...response.data);
-      hasMore = response.has_more;
-      if (hasMore) {
-        startingAfter = response.data[response.data.length - 1].id;
-      }
-    }
+    const response: any = await this.stripe.balanceTransactions.list({
+      limit: 100,
+    });
+    transactions.push(...response.data);
+
     return transactions;
   }
 
-  async fetchApplicationFees(startingAfter: string) {
+  async fetchApplicationFees() {
     const fees = [];
-    let hasMore = true;
 
-    while (hasMore) {
-      const response: any = await this.stripe.applicationFees.list({
-        limit: 100,
-        starting_after: startingAfter,
-      });
-      fees.push(...response.data);
-      hasMore = response.has_more;
-      if (hasMore) {
-        startingAfter = response.data[response.data.length - 1].id;
-      }
-    }
+    const response: any = await this.stripe.applicationFees.list({
+      limit: 100,
+    });
+    fees.push(...response.data);
 
     return fees;
   }
 
-  async fetchRefunds(startingAfter: string) {
+  async fetchRefunds() {
     const refunds = [];
-    let hasMore = true;
 
-    while (hasMore) {
-      const response: any = await this.stripe.refunds.list({
-        limit: 100,
-        starting_after: startingAfter,
-      });
-      refunds.push(...response.data);
-      hasMore = response.has_more;
-      if (hasMore) {
-        startingAfter = response.data[response.data.length - 1].id;
-      }
-    }
+    const response: any = await this.stripe.refunds.list({
+      limit: 100,
+    });
+    refunds.push(...response.data);
 
     return refunds;
   }
