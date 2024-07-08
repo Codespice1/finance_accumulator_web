@@ -6,18 +6,18 @@ import {describe} from "node:test";
 jest.mock("./handle-download");
 import {handleDownload} from "./handle-download";
 
-describe("File download UI feedback", () => {
+describe("File download test suite", () => {
   beforeEach(() => {
     handleDownload.mockClear();
   });
 
-  test("Checks if download button exists", () => {
+  test("download button exists", () => {
     const {getByText} = render(<Home />);
     const button = getByText("Download Report");
     expect(button).toBeInTheDocument();
   });
 
-  test("Checks if the success message displays after successful download", async () => {
+  test("success message displays after successful download", async () => {
     const {getByText} = render(<Home />);
 
     const button = getByText("Download Report");
@@ -38,7 +38,7 @@ describe("File download UI feedback", () => {
     });
   });
 
-  test("Checks if the error message displays after download fails", async () => {
+  test("error message displays after download fails", async () => {
     const {getByText} = render(<Home />);
 
     const button = getByText("Download Report");
