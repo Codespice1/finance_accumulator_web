@@ -1,4 +1,4 @@
-name: Check if Next.js App Runs Successfully at Port
+name: Main workflow
 
 on:
   pull_request:
@@ -23,6 +23,11 @@ jobs:
 
     - name: Code linting
       run: npm run lint
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
     - name: Build the Next.js application
       run: npm run build
