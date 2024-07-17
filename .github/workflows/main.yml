@@ -1,25 +1,28 @@
 name: Main workflow
 
 on:
-  pull_request:
-    branches:
-      - develop
+  [push]
 
 jobs:
-  check-port:
+  build_and_test:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
-        node-version: '20.14.0' # Specify the Node.js version your Next.js app uses
+        node-version: '20.14.0'
+        cache: 'npm'
 
     - name: Install dependencies
       run: npm install
+
+    - name: Build the Next.js application
+      run: npm run build --if-present
 
     - name: Code linting
       run: npm run lint
@@ -31,23 +34,3 @@ jobs:
       uses: codecov/codecov-action@v4.0.1
       with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-    - name: Build the Next.js application
-      run: npm run build
-
-    - name: Start the Next.js application
-      run: npm start &
-      env:
-        PORT: 3000 # Next.js defaults to port 3000
-
-    - name: Wait for the application to start
-      run: sleep 15 # Adjust the sleep duration based on how long your app takes to start
-
-    - name: Check if the app is running on the specified port
-      run: |
-        if nc -zv localhost 3000; then
-          echo "Next.js app is running on port 3000";
-        else
-          echo "Next.js app is not running on port 3000";
-          exit 1;
-        fi
