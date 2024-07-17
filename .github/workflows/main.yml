@@ -4,7 +4,7 @@ on:
   [push, pull_request]
 
 jobs:
-  check-port:
+  build_and_test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
