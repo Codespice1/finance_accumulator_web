@@ -1,11 +1,12 @@
 {
   "name": "finance_accumulator_web",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "docker-build-staging": "docker compose -f docker/staging/docker-compose.yml build",
+    "azure-push-staging": "docker tag ${npm_package_name}-staging:${npm_package_version} codespice.azurecr.io/${npm_package_name}-staging:${npm_package_version} && docker push codespice.azurecr.io/${npm_package_name}-staging:${npm_package_version}",
     "docker-start-staging": "docker compose -f docker/staging/docker-compose.yml up -d",
     "docker-stop-staging": "docker compose -f docker/staging/docker-compose.yml down",
     "start": "next start",
