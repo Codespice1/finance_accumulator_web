@@ -1,7 +1,7 @@
 "use client";
 
 import {useState} from "react";
-import {handleDownload} from "./handle-download";
+import {handleDownload} from "./actions/handle-download";
 
 export default function Home() {
   const [message, setMessage] = useState("");
