@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h2>Stripe financial report:</h2>
+      <h2 className="test-stripe">Stripe financial report:</h2>
       <button
         type="button"
         onClick={downloadReport}

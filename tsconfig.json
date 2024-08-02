@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "jest.polyfills.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "jest.polyfills.js", "cypress/e2e/google-login.cy.ts", "cypress/plugins/index.ts"],
   "exclude": ["node_modules"]
 }

@@ -38,3 +38,4 @@ next-env.d.ts
 
 .vscode/tasks.json
 /certificates/*
+cypress.env.json
