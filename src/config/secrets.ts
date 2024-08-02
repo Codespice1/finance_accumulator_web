@@ -7,31 +7,31 @@ class EnvConfig {
   }
 
   get githubID(): string {
-    if (!process.env.GITHUB_ID) {
-      throw new Error("GITHUB_ID environment not set");
-    }
-    return process.env.GITHUB_ID;
+    // if (!process.env.GITHUB_ID) {
+    //   throw new Error("GITHUB_ID environment not set");
+    // }
+    return process.env.GITHUB_ID || "";
   }
 
   get githubSecret(): string {
-    if (!process.env.GITHUB_SECRET) {
-      throw new Error("GITHUB_SECRET environment not set");
-    }
-    return process.env.GITHUB_SECRET;
+    // if (!process.env.GITHUB_SECRET) {
+    //   throw new Error("GITHUB_SECRET environment not set");
+    // }
+    return process.env.GITHUB_SECRET || "";
   }
 
   get googleID(): string {
-    if (!process.env.GOOGLE_CLIENT_ID) {
-      throw new Error("GOOGLE_CLIENT_ID environment not set");
-    }
-    return process.env.GOOGLE_CLIENT_ID;
+    // if (!process.env.GOOGLE_CLIENT_ID) {
+    //   throw new Error("GOOGLE_CLIENT_ID environment not set");
+    // }
+    return process.env.GOOGLE_CLIENT_ID || "";
   }
 
   get googleSecret(): string {
-    if (!process.env.GOOGLE_CLIENT_SECRET) {
-      throw new Error("GOOGLE_CLIENT_SECRET environment not set");
-    }
-    return process.env.GOOGLE_CLIENT_SECRET;
+    // if (!process.env.GOOGLE_CLIENT_SECRET) {
+    //   throw new Error("GOOGLE_CLIENT_SECRET environment not set");
+    // }
+    return process.env.GOOGLE_CLIENT_SECRET || "";
   }
 }
 
