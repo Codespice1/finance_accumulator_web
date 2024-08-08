@@ -41,7 +41,7 @@ jobs:
           containerAppName: finance-accumulator-web
           resourceGroup: codespice
           imageToBuild: codespice.azurecr.io/finance-accumulator-web:${{ github.sha }}
-          _buildArgumentsKey_: |
-            _buildArgumentsValues_
+          # _buildArgumentsKey_: |
+          #   _buildArgumentsValues_
 
 
