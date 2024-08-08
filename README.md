@@ -1,39 +1,36 @@
-# Finance Accumulator
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Finance Accumulator is a comprehensive full-stack application designed to help businesses manage and track their income and expenses by integrating with popular financial services such as Stripe, PayPal, and Shopify. 
+## Getting Started
 
-## Contributing
-- Fork the repository.
-- Create a new branch (git checkout -b feature-branch).
-- Commit your changes (git commit -am 'Add some feature').
-- Push to the branch (git push origin feature-branch).
-- Create a new Pull Request.
+First, run the development server:
 
-## Git Workflow
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-1. **Branch Types**:
-   - **Feature**: For new features (`feature/#id-short-description`).
-   - **Hotfix**: For bug fixes and performance improvements.
-   - **Bugfix**: 
-   - **Release**: 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-2. **Commit Messages**:
-   - Include the issue ID and a brief description (`#1: Adds sign-up functionality`).
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-3. **Branch Hierarchy**:
-   - **Main**: Stable code, deployed to users.
-   - **Staging**: Pre-release testing environment.
-   - **Develop**: Latest code for development.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-4. **Branch Naming Conventions**:
-- Format: `<username>/feature/<#id-task>-<short-descrip
-- Example: `D-Antonelli/feature/#1-user-authentication`
+## Learn More
 
+To learn more about Next.js, take a look at the following resources:
 
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+## Deploy on Vercel
 
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-
-
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
