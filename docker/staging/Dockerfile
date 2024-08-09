@@ -1,14 +1,22 @@
 FROM node:18-alpine AS base
 
+ARG STRIPE_KEY
+ARG NEXTAUTH_URL
+ARG NEXTAUTH_SECRET
+ARG AUTH_GITHUB_ID
+ARG AUTH_GITHUB_SECRET
+ARG GOOGLE_CLIENT_ID
+ARG GOOGLE_CLIENT_SECRET
+
 # Example of using a secret for installing npm packages
-RUN --mount=type=secret,id=stripe_key \
-    --mount=type=secret,id=nextauth_url \
-    --mount=type=secret,id=nextauth_secret \
-    --mount=type=secret,id=auth_github_id \
-    --mount=type=secret,id=auth_github_secret \
-    --mount=type=secret,id=google_client_id \
-    --mount=type=secret,id=google_client_secret \
-    echo "Using secrets in the build"
+# RUN --mount=type=secret,id=stripe_key \
+#     --mount=type=secret,id=nextauth_url \
+#     --mount=type=secret,id=nextauth_secret \
+#     --mount=type=secret,id=auth_github_id \
+#     --mount=type=secret,id=auth_github_secret \
+#     --mount=type=secret,id=google_client_id \
+#     --mount=type=secret,id=google_client_secret \
+#     echo "Using secrets in the build"
 
 
 # 1. Install dependencies only when needed
@@ -34,7 +42,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # This will do the trick, use the corresponding env file for each environment.
-# COPY .env.staging.example .env.production
+# COPY .env.staging .env.production
 RUN npm run build
 
 # 3. Production image, copy all the files and run next
