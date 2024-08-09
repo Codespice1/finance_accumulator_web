@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: codespice.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_7669d7e7e983475bb9b74548501f3331 }}/finance_accumulator_web:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./docker/staging/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
