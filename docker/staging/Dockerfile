@@ -16,16 +16,6 @@ ENV AUTH_GITHUB_SECRET=$AUTH_GITHUB_SECRET
 ENV GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID
 ENV GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET
 
-# Example of using a secret for installing npm packages
-# RUN --mount=type=secret,id=stripe_key \
-#     --mount=type=secret,id=nextauth_url \
-#     --mount=type=secret,id=nextauth_secret \
-#     --mount=type=secret,id=auth_github_id \
-#     --mount=type=secret,id=auth_github_secret \
-#     --mount=type=secret,id=google_client_id \
-#     --mount=type=secret,id=google_client_secret \
-#     echo "Using secrets in the build"
-
 
 # 1. Install dependencies only when needed
 FROM base AS deps
