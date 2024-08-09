@@ -1,5 +1,16 @@
 FROM node:18-alpine AS base
 
+# Example of using a secret for installing npm packages
+RUN --mount=type=secret,id=stripe_key \
+    --mount=type=secret,id=nextauth_url \
+    --mount=type=secret,id=nextauth_secret \
+    --mount=type=secret,id=auth_github_id \
+    --mount=type=secret,id=auth_github_secret \
+    --mount=type=secret,id=google_client_id \
+    --mount=type=secret,id=google_client_secret \
+    echo "Using secrets in the build"
+
+
 # 1. Install dependencies only when needed
 FROM base AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.

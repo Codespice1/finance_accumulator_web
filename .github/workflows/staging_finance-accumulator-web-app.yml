@@ -31,15 +31,15 @@ jobs:
       with:
         push: true
         tags: codespice.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_7669d7e7e983475bb9b74548501f3331 }}/finance_accumulator_web:${{ github.sha }}
+        secrets: |
+          id=stripe_key,src=${{ secrets.STRIPE_KEY }}
+          id=nextauth_url,src=${{ secrets.NEXTAUTH_URL }}
+          id=nextauth_secret,src=${{ secrets.NEXTAUTH_SECRET }}
+          id=auth_github_id,src=${{ secrets.AUTH_GITHUB_ID }}
+          id=auth_github_secret,src=${{ secrets.AUTH_GITHUB_SECRET }}
+          id=google_client_id,src=${{ secrets.GOOGLE_CLIENT_ID }}
+          id=google_client_secret,src=${{ secrets.GOOGLE_CLIENT_SECRET }}
         file: ./docker/staging/Dockerfile
-        build-args: |
-          STRIPE_KEY=${{ secrets.STRIPE_KEY }}
-          NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }}
-          NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}
-          AUTH_GITHUB_ID=${{ secrets.AUTH_GITHUB_ID }}
-          AUTH_GITHUB_SECRET=${{ secrets.AUTH_GITHUB_SECRET }}
-          GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}
 
   deploy:
     runs-on: ubuntu-latest
