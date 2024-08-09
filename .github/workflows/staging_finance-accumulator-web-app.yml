@@ -27,6 +27,14 @@ jobs:
         password: ${{ secrets.AzureAppService_ContainerPassword_e164ffea54304645b9f20458582c99b2 }}
 
     - name: Build and push container image to registry
+      env:
+        STRIPE_KEY: ${{ secrets.STRIPE_KEY }}
+        NEXTAUTH_URL: ${{secrets.NEXTAUTH_URL}}
+        NEXTAUTH_SECRET: ${{secrets.NEXTAUTH_SECRET}}
+        AUTH_GITHUB_ID: ${{secrets.AUTH_GITHUB_ID}}
+        AUTH_GITHUB_SECRET: ${{secrets.AUTH_GITHUB_SECRET}}
+        GOOGLE_CLIENT_ID: ${{secrets.GOOGLE_CLIENT_ID}}
+        GOOGLE_CLIENT_SECRET: ${{secrets.GOOGLE_CLIENT_SECRET}}
       uses: docker/build-push-action@v3
       with:
         push: true
