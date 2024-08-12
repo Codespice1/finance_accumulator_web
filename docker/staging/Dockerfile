@@ -1,5 +1,22 @@
 FROM node:18-alpine AS base
 
+ARG STRIPE_KEY
+ARG NEXTAUTH_URL
+ARG NEXTAUTH_SECRET
+ARG AUTH_GITHUB_ID
+ARG AUTH_GITHUB_SECRET
+ARG GOOGLE_CLIENT_ID
+ARG GOOGLE_CLIENT_SECRET
+
+ENV STRIPE_KEY=$STRIPE_KEY
+ENV NEXTAUTH_URL=$NEXTAUTH_URL
+ENV NEXTAUTH_SECRET=$NEXTAUTH_SECRET
+ENV AUTH_GITHUB_ID=$AUTH_GITHUB_ID
+ENV AUTH_GITHUB_SECRET=$AUTH_GITHUB_SECRET
+ENV GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID
+ENV GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET
+
+
 # 1. Install dependencies only when needed
 FROM base AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
@@ -23,7 +40,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # This will do the trick, use the corresponding env file for each environment.
-COPY .env.staging.example .env.production
+# COPY .env.staging .env.production
 RUN npm run build
 
 # 3. Production image, copy all the files and run next
