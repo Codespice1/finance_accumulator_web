@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import Home from "./page";
 import {describe} from "node:test";
 
-jest.mock("./actions/handle-download");
+jest.mock("../actions/handle-download");
 import {handleDownload} from "../actions/handle-download";
 
 describe("File download test suite", () => {
