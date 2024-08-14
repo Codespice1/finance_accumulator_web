@@ -15,7 +15,7 @@ export const authOptions = {
     }),
   ],
     callbacks: {
-      async redirect({ url, baseUrl }) {
+      async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
         // Always redirect to the dashboard after sign in
         return url.startsWith(baseUrl) ? `${baseUrl}/dashboard` : url;
       },
