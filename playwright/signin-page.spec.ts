@@ -1,11 +1,8 @@
 import {test, expect} from "@playwright/test";
 
-test.beforeEach(async ({page}) => {
-  await page.goto(`http://localhost:3000/api/auth/signin`);
-});
-
 test.describe("Sign-in Page", () => {
   test("should have the correct URL and social login buttons", async ({page}) => {
+    await page.goto(`/api/auth/signin`);
     // Check for the presence of social login buttons
     const githubButton = page.locator("text=Sign in with Github");
     const googleButton = page.locator("text=Sign in with Google");
