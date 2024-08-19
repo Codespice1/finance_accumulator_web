@@ -27,8 +27,6 @@ jobs:
           start: npm start
           spec: |
             cypress/e2e/*.cy.ts
-            - name: Install Playwright Browsers
-            run: npx playwright install --with-deps
 
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
