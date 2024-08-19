@@ -14,6 +14,12 @@ export const authOptions = {
       clientSecret: secrets.googleSecret,
     }),
   ],
+    callbacks: {
+      async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
+        // Always redirect to the dashboard after sign in
+        return url.startsWith(baseUrl) ? `${baseUrl}/dashboard` : url;
+      },
+    }
 };
 
 export const handler = NextAuth(authOptions);
