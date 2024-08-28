@@ -44,7 +44,7 @@ jobs:
         cache-to: type=local,dest=/tmp/.buildx-cache,new=true
         build-args: |
           STRIPE_KEY=${{ secrets.STRIPE_KEY }}
-          NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }}
+          NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL_STAGING }}
           NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}
           AUTH_GITHUB_ID=${{ secrets.AUTH_GITHUB_ID_STAGING }}
           AUTH_GITHUB_SECRET=${{ secrets.AUTH_GITHUB_SECRET_STAGING }}
