@@ -1,7 +1,7 @@
 "use client";
 
 import {useState} from "react";
-import {handleDownload} from "./actions/handle-download";
+import {handleDownload} from "../actions/handle-download";
 
 export default function Home() {
   const [message, setMessage] = useState("");
@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h2 className="test-stripe">Stripe financial report:</h2>
+      <h2 data-cy="authenticated">Stripe financial report:</h2>
       <button
         type="button"
         onClick={downloadReport}
