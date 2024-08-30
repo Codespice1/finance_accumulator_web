@@ -1,16 +1,19 @@
-# FINANCE ACCUMULATOR
+![banner](https://raw.githubusercontent.com/Codespice1/finance_accumulator_web/77ff12ebae93e15209b3e9e25718f2de75094fd3/public/images/doc/banner.png)
+
+# Finance Accumulator
+
+![github status](https://github.com/Codespice1/finance_accumulator_web/actions/workflows/main.yml/badge.svg) [![codecov](https://codecov.io/gh/Codespice1/finance_accumulator_web/graph/badge.svg?token=59FR10U3VL)](https://codecov.io/gh/Codespice1/finance_accumulator_web) ![github status](https://github.com/Codespice1/finance_accumulator_web/actions/workflows/staging_finance-accumulator-web-app.yml/badge.svg) ![Docker Automated build](https://img.shields.io/docker/automated/Codespice1/finance_accumulator_web) ![GitHub License](https://img.shields.io/github/license/Codespice1/finance_accumulator_web)
 
 
 
 
+-- Project description here---
 
 
-
-
+# Quick Start
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
 First, run the development server:
 
@@ -26,17 +29,16 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Table of Contents
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This is a table of contents for your project. It helps the reader navigate through the README quickly.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
+- [Project Title](https://www.notion.so/README-88975ddb705645f688013a6f0bdccf75?pvs=21)
+- [Quick Start Demo](https://www.notion.so/README-88975ddb705645f688013a6f0bdccf75?pvs=21)
+- [Table of Contents](https://www.notion.so/README-88975ddb705645f688013a6f0bdccf75?pvs=21)
+- [Installation](https://www.notion.so/README-88975ddb705645f688013a6f0bdccf75?pvs=21)
+- [Usage](https://www.notion.so/README-88975ddb705645f688013a6f0bdccf75?pvs=21)
+- [Development](https://www.notion.so/README-88975ddb705645f688013a6f0bdccf75?pvs=21)
+- [Contribute](https://www.notion.so/README-88975ddb705645f688013a6f0bdccf75?pvs=21)
+- [License](https://www.notion.so/README-88975ddb705645f688013a6f0bdccf75?pvs=21)
 
